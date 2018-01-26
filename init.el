@@ -24,7 +24,15 @@
 ;; initialization
 (exec-path-from-shell-initialize)
 (load-theme 'monokai t)
-(add-hook 'org-mode-hook 'turn-on-flyspell)
+
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq org-default-notes-file "~/.notes/index.org")
+(setq org-agenda-files (list "~/.agenda/school.org"))
+
+(with-eval-after-load 'org
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode)
+  (add-hook 'org-mode-hook 'turn-on-flyspell))
 
 ;; cider stuff
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
