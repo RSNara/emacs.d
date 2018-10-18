@@ -62,6 +62,9 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
+;; Inhibit startup screen
+(setq inhibit-startup-screen t)
+
 ;; cider stuff
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 (custom-set-variables
